@@ -1,6 +1,9 @@
 paczka = 0
 suma_element = 0
 suma_paczek = 0
+puste_kg = 0
+suma_pustych_kg = 0
+max_paczka = 20
 
 element = input()
 if element:
@@ -14,7 +17,11 @@ while element:
         paczka += element
         print ("Ilość w paczce to {}kg".format(paczka))
     else:
-        print ("Element jest za ciężki! Otwieram nową paczkę.")
+        print ("ELEMENT JEST ZA CIĘŻKI! OTWIERAM NOWĄ PACZKĘ.")
+        puste_kg = max_paczka - paczka
+        print (puste_kg)
+        suma_pustych_kg += puste_kg
+        print ("Puste kg teraz: {}".format(suma_pustych_kg))
         suma_paczek += 1
         print ("Aktualna ilość paczek: {}".format(suma_paczek))
         paczka = element
@@ -24,5 +31,8 @@ while element:
     if element:
         element = int(element)
 suma_paczek += 1 #zamykamy ostatnią paczkę
+puste_kg = max_paczka - paczka
+suma_pustych_kg += puste_kg
 print ("Koniec elementów!")
 print ("Łączna ilość paczek: {}".format(suma_paczek))
+print ("Łączna ilość pustych kg: {}".format(suma_pustych_kg))
