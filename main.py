@@ -17,10 +17,11 @@ while element:
         print ("Suma elementów wynosi {}kg".format(suma_element))
         paczka += element
         print ("Ilość w paczce to {}kg".format(paczka))
+    elif element > 10:
+        print ("ELEMENT WAZY ZA DUŻO! ZOSTAJE POMINIĘTY.\n")
     else:
-        print ("ELEMENT JEST ZA CIĘŻKI! OTWIERAM NOWĄ PACZKĘ.")
+        print ("ELEMENT JEST ZA CIĘŻKI! OTWIERAM NOWĄ PACZKĘ.\n")
         puste_kg = max_paczka - paczka
-        print (puste_kg)
         suma_pustych_kg += puste_kg
         print ("Puste kg teraz: {}".format(suma_pustych_kg))
         suma_wysl_kg += paczka
