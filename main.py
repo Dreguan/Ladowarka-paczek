@@ -5,14 +5,15 @@ puste_kg = 0
 suma_pustych_kg = 0
 suma_wysl_kg = 0
 max_paczka = 20
+licznik = 1
 
 element = input()
 if element:
     element = float(element)
-
+print ("Numer paczki: {}".format(licznik))
 while element:
     if element > 10:
-        print ("ELEMENT WAŻY ZA DUŻO! ZOSTAJE POMINIĘTY.\n")
+        print ("ELEMENT WAŻY ZA DUŻO! - {}KG ZOSTAJE POMINIĘTY.".format(element))
         #print ("ELEMENT WAŻY ZA DUŻO!")
         #break
     elif element > 1 and paczka + element <= 20:
@@ -32,6 +33,8 @@ while element:
         suma_wysl_kg += paczka
         suma_paczek += 1
         print ("Aktualna ilość paczek: {}".format(suma_paczek))
+        licznik += 1
+        print ("Numer paczki: {}".format(licznik))
         paczka = element
         print ("Paczka waży teraz {}kg".format(paczka))
         suma_element = element
