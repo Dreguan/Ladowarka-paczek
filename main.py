@@ -6,6 +6,7 @@ suma_pustych_kg = 0
 suma_wysl_kg = 0
 max_paczka = 20
 licznik = 1
+najwiecej_pustych = 0
 
 element = input()
 if element:
@@ -13,7 +14,7 @@ if element:
 print ("Numer paczki: {}".format(licznik))
 while element:
     if element > 10:
-        print ("ELEMENT WAŻY ZA DUŻO! - {}KG ZOSTAJE POMINIĘTY.".format(element))
+        print ("ELEMENT WAŻY ZA DUŻO! {}KG ZOSTAJE POMINIĘTY.".format(element))
         #print ("ELEMENT WAŻY ZA DUŻO!")
         #break
     elif element > 1 and paczka + element <= 20:
@@ -28,8 +29,17 @@ while element:
     else:
         print ("ELEMENT JEST ZA CIĘŻKI DO TEJ PACZKI! OTWIERAM NOWĄ PACZKĘ.\n")
         puste_kg = max_paczka - paczka
+        #print("PUSTE KG = {}".format(puste_kg))
         suma_pustych_kg += puste_kg
-        print ("Puste kg teraz: {}".format(suma_pustych_kg))
+        #puste_kg1 = max_paczka - paczka
+        #print("PUSTE KG 1 = {}.".format(puste_kg1))
+        print ("Puste kg w paczce nr {}: {}.".format(licznik,puste_kg))
+        print ("Puste kg teraz razem: {}".format(suma_pustych_kg))
+        if puste_kg > najwiecej_pustych:
+            najwiecej_pustych = puste_kg
+            print ("Najwięcej pustych kg w paczce to {}kg.\n".format(najwiecej_pustych))
+        else:
+            print ("Najwięcej pustych kg w paczce to {}kg.\n".format(najwiecej_pustych))
         suma_wysl_kg += paczka
         suma_paczek += 1
         print ("Aktualna ilość paczek: {}".format(suma_paczek))
@@ -44,9 +54,21 @@ while element:
 if paczka:
     suma_paczek += 1 #zamykamy ostatnią paczkę
     puste_kg = max_paczka - paczka
+    #print ("PUSTE KG = {}".format(puste_kg))
     suma_wysl_kg += paczka
     suma_pustych_kg += puste_kg
+    # = max_paczka - paczka
+    #print ("PUSTE KG 1 = {}.".format(puste_kg1))
+    print("Puste kg w paczce nr {}: {}.".format(licznik, puste_kg))
+    print("Puste kg teraz: {}".format(suma_pustych_kg))
+    if puste_kg > najwiecej_pustych:
+        najwiecej_pustych = puste_kg
+        print("Najwięcej pustych kg w paczce to {}kg.\n".format(najwiecej_pustych))
+    else:
+        print("Najwięcej pustych kg w paczce to {}kg.\n".format(najwiecej_pustych))
     print ("Koniec elementów.\n")
 print ("Łączna ilość paczek: {}".format(suma_paczek))
 print ("Łączna ilość wysłanych kg: {}".format(suma_wysl_kg))
 print ("Łączna ilość pustych kg: {}".format(suma_pustych_kg))
+print("Najwięcej pustych kg w paczce to {}kg.\n".format(najwiecej_pustych))
+
